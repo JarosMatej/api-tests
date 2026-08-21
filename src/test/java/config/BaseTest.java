@@ -16,6 +16,8 @@ public class BaseTest {
     protected static String baseUri = config.getServer();
 
     protected static String loginPath = "/restLogin";
+
+    protected static String uploadDocPath = "/REST/uploadDocument";
     protected static final String UPLOAD_DOC_VALID_SCHEMA_JSON = "schemas/upload-doc-valid-schema.json";
     protected static final String CREATE_DOC_LINK_VALID_SCHEMA_JSON = "schemas/create-doc-link-valid-schema.json";
 
@@ -86,5 +88,13 @@ public class BaseTest {
 
     protected static String getTimeStamp() {
         return String.valueOf(Instant.now().toEpochMilli());
+    }
+
+    protected ValidatableResponse uploadDocument(ParamsConfig params) {
+        var res = this.authenticatedRequestSpec(params, uploadDocPath);
+        String docToken = res.extract().path("document.doctoken");
+        DocumentDeleter.addToken(docToken);
+
+        return res;
     }
 }
