@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties":{
+    "uploadResult": {"type": "string"},
+    "document":{
+      "type":"object",
+      "properties": {
+        "docid": {"type": "number"},
+        "docowner": {"type": "string"},
+        "docdeadline": {"type": "number"},
+        "docstate": {"type": "string"},
+        "docsize": {"type": "number"},
+        "docMode": {"type": "string"},
+        "docname": {"type": "string"},
+        "doctoken": {"type": "string"}
+      },
+      "required": ["docid","docname", "docstate", "docowner", "docsize", "docMode", "doctoken"]
+    },
+    "signatures":
+    {
+      "type": "array",
+      "properties":
+      {
+        "sigsignerfirstname": {"type": "string"},
+        "sigwidth": {"type": "number"},
+        "signame": {"type": "string"},
+        "sigrequired": {"type": "boolean"},
+        "signaturePreloadedImage": {"type": "boolean"},
+        "siguser":
+        {
+          "type": "object",
+          "properties": {
+            "userSecondName": {"type": "string"},
+            "userunregistered": {"type": "boolean"},
+            "userphone": {"type": "string"},
+            "initials": {"type": "string"},
+            "userFirstName": {"type": "string"},
+            "userid": {"type": "number"},
+            "useremail": {"type": "string"}
+          },
+          "required": ["userSecondName",
+            "userunregistered",
+            "userphone",
+            "initials",
+            "userFirstName",
+            "userid",
+            "useremail"]
+        },
+        "sigid": {"type": "number"},
+        "sigsigner": {"type": "string"},
+        "sigheight": {"type": "number"},
+        "sigx": {"type": "number"},
+        "siggenerateqr": {"type": "number"},
+        "sigmethod": {"type": "number"},
+        "sigorder": {"type": "number"},
+        "sigpage": {"type": "number"},
+        "sigsignersecondname": {"type": "string"},
+        "siginperson": {"type": "boolean"},
+        "sigauthmethods": {
+          "type": "array",
+          "properties": {
+            "type": {"type": "string"},
+            "order": {"type": "number"}
+          },
+          "required": ["type", "order"]
+        },
+        "sigsigned": {"type": "boolean"},
+        "sigy": {"type": "number"}
+      },
+      "required": ["sigsignerfirstname",
+        "sigwidth",
+        "signame",
+        "sigrequired",
+        "signaturePreloadedImage",
+        "siguser","sigid",
+        "sigsigner",
+        "sigheight",
+        "sigx",
+        "siggenerateqr",
+        "sigmethod",
+        "sigorder",
+        "sigpage",
+        "sigsignersecondname",
+        "siginperson",
+        "sigauthmethods","sigsigned",
+        "sigy"]
+    }
+  },
+  "required": ["uploadResult", "document", "signatures"]
+}
