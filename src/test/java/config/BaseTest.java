@@ -7,6 +7,7 @@ import io.restassured.specification.RequestSpecification;
 import java.time.Instant;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 
 public class BaseTest {
@@ -30,6 +31,7 @@ public class BaseTest {
     protected static final String SIGN_VALID_SCHEMA_JSON = "schemas/sign-valid-schema.json";
     protected static final String SIGN_ERROR_SCHEMA_JSON = "schemas/sign-error-schema.json";
     protected static final String SIGN_MISSING_PARAM_SCHEMA_JSON = "schemas/sign-missing-param-schema.json";
+    protected static final String DOWNLOAD_DOC_VALID_SCHEMA_JSON = "schemas/download-doc-valid-schema.json";
     protected static String signDocPath = "/REST/signDocument";
 
 
@@ -53,7 +55,7 @@ public class BaseTest {
         String[] names = {"login", "password"};
         String[][] vals = {{config.getUsername()}, {config.getPassword()}};
         var conf = new ParamsConfig(names, vals);
-        token = this.defaultRequestSpec(conf, loginPath).statusCode(200).assertThat().body("result", equalTo("OK")).extract().path("token");
+        token = this.defaultRequestSpec(conf, loginPath).statusCode(200).assertThat().body("result", equalTo("OK")).body(matchesJsonSchemaInClasspath(LOGIN_VALID_SCHEMA_JSON)).extract().path("token");
     }
 
     private RequestSpecification setParams(ParamsConfig params, RequestSpecification spec) {
