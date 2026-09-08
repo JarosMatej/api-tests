@@ -1,8 +1,15 @@
 {
   "type": "object",
   "properties": {
-    "description": {"type": "string"},
-    "error": {"type": "string"}
+    "description": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string"
+    }
   },
-  "required": ["description", "error"]
+  "required": [
+    "description",
+    "error"
+  ]
 }

@@ -1,10 +1,19 @@
 {
   "type": "object",
-  "properties":{
-    "bioId": {"type": "string"},
-    "createDocLinkResult": {"type": "string"},
-    "link": {"type": "string"}
+  "properties": {
+    "bioId": {
+      "type": "string"
+    },
+    "createDocLinkResult": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
   },
-  "required": ["bioId","createDocLinkResult", "link"]
-
+  "required": [
+    "bioId",
+    "createDocLinkResult",
+    "link"
+  ]
 }

@@ -1,7 +1,11 @@
 {
   "type": "object",
   "properties": {
-    "createDocLinkResult": {"type": "string"}
+    "createDocLinkResult": {
+      "type": "string"
+    }
   },
-  "required": ["createDocLinkResult"]
+  "required": [
+    "createDocLinkResult"
+  ]
 }

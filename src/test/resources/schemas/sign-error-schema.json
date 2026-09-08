@@ -1,7 +1,11 @@
 {
   "type": "object",
   "properties": {
-    "signResult": {"type": "string"}
+    "signResult": {
+      "type": "string"
+    }
   },
-  "required": ["signResult"]
+  "required": [
+    "signResult"
+  ]
 }

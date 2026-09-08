@@ -1,8 +1,15 @@
 {
   "type": "object",
   "properties": {
-    "signResult": {"type": "string"},
-    "sigimg": {"type": "string"}
+    "signResult": {
+      "type": "string"
+    },
+    "sigimg": {
+      "type": "string"
+    }
   },
-  "required": ["signResult", "sigimg"]
+  "required": [
+    "signResult",
+    "sigimg"
+  ]
 }

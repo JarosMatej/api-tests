@@ -1,10 +1,23 @@
 {
   "type": "object",
   "properties": {
-    "token": {"type": "string"},
-    "tokenExp": {"type": "number"},
-    "tokenExpIn": {"type": "number"},
-    "result": {"type": "string"}
+    "token": {
+      "type": "string"
+    },
+    "tokenExp": {
+      "type": "number"
+    },
+    "tokenExpIn": {
+      "type": "number"
+    },
+    "result": {
+      "type": "string"
+    }
   },
-  "required": ["token", "tokenExp", "tokenExpIn", "result"]
+  "required": [
+    "token",
+    "tokenExp",
+    "tokenExpIn",
+    "result"
+  ]
 }

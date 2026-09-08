@@ -1,7 +1,11 @@
 {
   "type": "object",
   "properties": {
-    "uploadResult": {"type": "string"}
+    "uploadResult": {
+      "type": "string"
+    }
   },
-  "required": ["uploadResult"]
+  "required": [
+    "uploadResult"
+  ]
 }

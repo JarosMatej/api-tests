@@ -1,7 +1,11 @@
 {
   "type": "object",
   "properties": {
-    "result": {"type": "string"}
+    "result": {
+      "type": "string"
+    }
   },
-  "required": ["result"]
+  "required": [
+    "result"
+  ]
 }
