@@ -32,8 +32,11 @@ public class BaseTest {
     protected static final String SIGN_ERROR_SCHEMA_JSON = "schemas/sign-error-schema.json";
     protected static final String SIGN_MISSING_PARAM_SCHEMA_JSON = "schemas/sign-missing-param-schema.json";
     protected static final String DOWNLOAD_DOC_VALID_SCHEMA_JSON = "schemas/download-doc-valid-schema.json";
+
+    protected static final String UPLOAD_ATTACHMENT_SCHEMA = "schemas/upload-attachment-schema.json";
     protected static String signDocPath = "/REST/signDocument";
 
+    protected static String uploadAttachmentPath = "/REST/uploadAttachment";
     protected static String createDocLinkPath = "/REST/createDocLink";
 
 

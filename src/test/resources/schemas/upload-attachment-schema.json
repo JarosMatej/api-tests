@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "internal": {
+      "type": "string"
+    },
+    "uploadResult": {
+      "type": "string"
+    },
+    "id": {
+      "id": "number"
+    }
+  },
+  "required": [
+    "internal",
+    "uploadResult",
+    "id"
+  ]
+}
