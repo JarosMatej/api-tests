@@ -1,12 +1,15 @@
 import config.Base64Resources;
 import config.BaseTest;
 import config.ParamsConfig;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AddAttachmentTest extends BaseTest {
     private static String docToken;
 
@@ -47,7 +50,7 @@ public class AddAttachmentTest extends BaseTest {
     @Order(3)
     void uploadAttachmentInvalidData() {
         String[] names = {"token", "metadata", "data", "internal"};
-        String[][] vals = {{String.valueOf(docToken)}, {"\"name\":\"Integration_test" + getTimeStamp() + "\",\"type\":\"png\""}, {attachmentDataInvalidData}, {"true"}};
+        String[][] vals = {{String.valueOf(docToken)}, {"{\"name\":\"Integration_test" + getTimeStamp() + "\",\"type\":\"png\"}"}, {attachmentDataInvalidData}, {"true"}};
         var conf = new ParamsConfig(names, vals);
         this.authenticatedRequestSpec(conf, uploadAttachmentPath)
                 .statusCode(200)
@@ -61,7 +64,7 @@ public class AddAttachmentTest extends BaseTest {
     @Order(4)
     void uploadAttachment() {
         String[] names = {"token", "metadata", "data", "internal"};
-        String[][] vals = {{String.valueOf(docToken)}, {"\"name\":\"Integration_test" + getTimeStamp() + "\",\"type\":\"png\""}, {attachmentData}, {"true"}};
+        String[][] vals = {{String.valueOf(docToken)}, {"{\"name\":\"Integration_test" + getTimeStamp() + "\",\"type\":\"png\"}"}, {attachmentData}, {"true"}};
         var conf = new ParamsConfig(names, vals);
         this.authenticatedRequestSpec(conf, uploadAttachmentPath)
                 .statusCode(200)

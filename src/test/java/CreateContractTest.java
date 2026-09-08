@@ -1,12 +1,15 @@
 import config.Base64Resources;
 import config.BaseTest;
 import config.ParamsConfig;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CreateContractTest extends BaseTest {
 
     private static int docId;
@@ -29,7 +32,7 @@ public class CreateContractTest extends BaseTest {
                 .body("result", equalTo("OK"))
                 .body(matchesJsonSchemaInClasspath(CREATE_CONTRACT_VALID_SCHEMA))
                 .extract();
-        contractToken = spec.path("contoken");
+        contractToken = spec.path("token");
     }
 
     @Test

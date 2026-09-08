@@ -50,7 +50,7 @@ public class BaseTest {
         return given().
                 baseUri(baseUri)
                 .log()
-                .all();
+                .ifValidationFails();
     }
 
     private static RequestSpecification baseAuthenticatedGiven() {
