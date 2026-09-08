@@ -34,11 +34,17 @@ public class BaseTest {
     protected static final String DOWNLOAD_DOC_VALID_SCHEMA_JSON = "schemas/download-doc-valid-schema.json";
 
     protected static final String UPLOAD_ATTACHMENT_SCHEMA = "schemas/upload-attachment-schema.json";
+
+    protected static final String CREATE_CONTRACT_VALID_SCHEMA = "schemas/create-contract-valid-schema.json";
+
+    protected static final String GET_CONTRACT_BY_TOKEN_VALID_SCHEMA = "schemas/get-contract-by-token-valid-schema.json";
     protected static String signDocPath = "/REST/signDocument";
 
     protected static String uploadAttachmentPath = "/REST/uploadAttachment";
     protected static String createDocLinkPath = "/REST/createDocLink";
+    protected static String createContractPath = "/REST/createContract";
 
+    protected static String getContractByTokenPath = "/REST/getContractByToken";
 
     private static RequestSpecification baseGiven() {
         return given().

@@ -1,0 +1,231 @@
+{
+  "type": "object",
+  "properties": {
+    "getDocResult": {
+      "type": "string"
+    },
+    "docObject": {
+      "type": "object",
+      "properties": {
+        "contractDocuments": {
+          "type": "array",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "number"
+            },
+            "contractRange": {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "type": "number"
+                },
+                "end": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "start",
+                "end"
+              ]
+            },
+            "token": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id",
+            "contractRange",
+            "token"
+          ]
+        },
+        "docownerfirstname": {
+          "type": "string"
+        },
+        "docid": {
+          "type": "number"
+        },
+        "docownersecondname": {
+          "type": "string"
+        },
+        "docstateid": {
+          "type": "number"
+        },
+        "docMode": {
+          "type": "string"
+        },
+        "doctoken": {
+          "type": "string"
+        },
+        "signatures": {
+          "type": "array",
+          "properties": {
+            "sigsignerfirstname": {
+              "type": "string"
+            },
+            "sigwidth": {
+              "type": "number"
+            },
+            "signame": {
+              "type": "string"
+            },
+            "sigrequired": {
+              "type": "boolean"
+            },
+            "signaturePreloadedImage": {
+              "type": "boolean"
+            },
+            "siguser": {
+              "type": "object",
+              "properties": {
+                "userSecondName": {
+                  "type": "string"
+                },
+                "userunregistered": {
+                  "type": "boolean"
+                },
+                "userphone": {
+                  "type": "string"
+                },
+                "initials": {
+                  "type": "string"
+                },
+                "userFirstName": {
+                  "type": "string"
+                },
+                "userid": {
+                  "type": "number"
+                },
+                "useremail": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "userSecondName",
+                "userunregistered",
+                "userphone",
+                "initials",
+                "userFirstName",
+                "userid",
+                "useremail"
+              ]
+            },
+            "sigid": {
+              "type": "number"
+            },
+            "sigsigner": {
+              "type": "string"
+            },
+            "sigheight": {
+              "type": "number"
+            },
+            "sigx": {
+              "type": "number"
+            },
+            "siggenerateqr": {
+              "type": "boolean"
+            },
+            "sigmethod": {
+              "type": "string"
+            },
+            "sigorder": {
+              "type": "number"
+            },
+            "sigpage": {
+              "type": "number"
+            },
+            "sigsignersecondname": {
+              "type": "string"
+            },
+            "siginperson": {
+              "type": "boolean"
+            },
+            "sigauthmethods": {
+              "type": "array",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "order": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "type",
+                "order"
+              ]
+            },
+            "sigsigned": {
+              "type": "boolean"
+            },
+            "sigy": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "sigsignerfirstname",
+            "sigwidth",
+            "signame",
+            "sigrequired",
+            "signaturePreloadedImage",
+            "siguser",
+            "sigid",
+            "sigsigner",
+            "sigheight",
+            "sigx",
+            "siggenerateqr",
+            "sigmethod",
+            "sigorder",
+            "sigpage",
+            "sigsignersecondname",
+            "siginperson",
+            "sigauthmethods",
+            "sigsigned",
+            "sigy"
+          ]
+        },
+        "docowner": {
+          "type": "string"
+        },
+        "docstate": {
+          "type": "string"
+        },
+        "docdeleted": {
+          "type": "boolean"
+        },
+        "docname": {
+          "type": "string"
+        },
+        "deadline": {
+          "type": "number"
+        },
+        "docdate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "contractDocuments",
+        "docownerfirstname",
+        "docid",
+        "docownersecondname",
+        "docstateid",
+        "docMode",
+        "doctoken",
+        "signatures",
+        "docowner",
+        "docstate",
+        "docdeleted",
+        "docname",
+        "deadline",
+        "docdate"
+      ]
+    }
+  },
+  "required": [
+    "getDocResult",
+    "docObject"
+  ]
+}

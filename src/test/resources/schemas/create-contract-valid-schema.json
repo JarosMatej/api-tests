@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "string"
+    },
+    "documents": {
+      "type": "array",
+      "properties": {
+        "docid": {
+          "type": "number"
+        },
+        "doctoken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "docid",
+        "doctoken"
+      ]
+    },
+    "conname": {
+      "type": "string"
+    },
+    "conid": {
+      "type": "number"
+    },
+    "token": {
+      "type": "string"
+    },
+    "condeadline": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "result",
+    "documents",
+    "conname",
+    "conid",
+    "token",
+    "condeadline"
+  ]
+}

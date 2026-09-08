@@ -38,6 +38,10 @@ public final class Base64Resources {
         return load("/base64/dataUploadAttachment.txt");
     }
 
+    public static String getDocumentsCreateContract() {
+        return load("/base64/documentsCreateContract.txt");
+    }
+
     private static String load(String path) {
         return CACHE.computeIfAbsent(path, p -> {
             try (InputStream is = Base64Resources.class.getResourceAsStream(p)) {
