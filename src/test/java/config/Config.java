@@ -3,11 +3,10 @@ package config;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class Config {
+    private static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
     private static final Config INSTANCE = new Config();
-    private final Dotenv dotenv;
 
     private Config() {
-        this.dotenv = Dotenv.configure().ignoreIfMissing().load();
     }
 
     public static Config getInstance() {
@@ -15,30 +14,30 @@ public class Config {
     }
 
     public String getServer() {
-        return dotenv.get("SERVER", "https://test.signosoft.com/api");
+        return Config.dotenv.get("SERVER", "https://test.signosoft.com/api");
     }
 
     public String getDocOwner() {
-        return dotenv.get("DOC_OWNER");
+        return Config.dotenv.get("DOC_OWNER");
     }
 
     public String getUsername() {
-        return dotenv.get("LOGIN");
+        return Config.dotenv.get("LOGIN");
     }
 
     public String getPassword() {
-        return dotenv.get("PASSWORD");
+        return Config.dotenv.get("PASSWORD");
     }
 
     public String getSignerLogin() {
-        return dotenv.get("SIGNER_LOGIN");
+        return Config.dotenv.get("SIGNER_LOGIN");
     }
 
     public String getName() {
-        return dotenv.get("NAME");
+        return Config.dotenv.get("NAME");
     }
 
     public String get(String key) {
-        return dotenv.get(key);
+        return Config.dotenv.get(key);
     }
 }
