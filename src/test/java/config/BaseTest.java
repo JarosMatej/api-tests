@@ -20,6 +20,17 @@ public class BaseTest {
     protected static String uploadDocPath = "/REST/uploadDocument";
     protected static final String UPLOAD_DOC_VALID_SCHEMA_JSON = "schemas/upload-doc-valid-schema.json";
     protected static final String CREATE_DOC_LINK_VALID_SCHEMA_JSON = "schemas/create-doc-link-valid-schema.json";
+    protected static final String LOGIN_ERROR_SCHEMA_JSON = "schemas/login-error-schema.json";
+    protected static final String UPLOAD_ERROR_SCHEMA_JSON = "schemas/upload-error-schema.json";
+    protected static final String CREATE_DOC_LINK_ERROR_SCHEMA_JSON = "schemas/create-doc-link-error-schema.json";
+    protected static final String LOGIN_MISSING_PARAM_ERROR_SCHEMA_JSON = "schemas/login-missing-param-error-schema.json";
+    protected static final String UPLOAD_MISSING_PARAM_ERROR_SCHEMA_JSON = "schemas/upload-missing-param-error-schema.json";
+    protected static final String LOGIN_VALID_SCHEMA_JSON = "schemas/login-valid-schema.json";
+    protected static final String LOGIN_WRONG_SCHEMA_JSON = "schemas/login-wrong-schema.json";
+    protected static final String SIGN_VALID_SCHEMA_JSON = "schemas/sign-valid-schema.json";
+    protected static final String SIGN_ERROR_SCHEMA_JSON = "schemas/sign-error-schema.json";
+    protected static final String SIGN_MISSING_PARAM_SCHEMA_JSON = "schemas/sign-missing-param-schema.json";
+    protected static String signDocPath = "/REST/signDocument";
 
 
     private static RequestSpecification baseGiven() {
