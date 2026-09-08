@@ -34,17 +34,26 @@ public class BaseTest {
     protected static final String DOWNLOAD_DOC_VALID_SCHEMA_JSON = "schemas/download-doc-valid-schema.json";
     protected static String signDocPath = "/REST/signDocument";
 
+    protected static String createDocLinkPath = "/REST/createDocLink";
+
 
     private static RequestSpecification baseGiven() {
-        return given().baseUri(baseUri).log().all();
+        return given().
+                baseUri(baseUri)
+                .log()
+                .all();
     }
 
     private static RequestSpecification baseAuthenticatedGiven() {
-        return baseGiven().header("Authorization", "Bearer " + token);
+        return baseGiven()
+                .header("Authorization", "Bearer " + token);
     }
 
     private static ValidatableResponse baseThen(Response spec) {
-        return spec.then().log().all();
+        return spec
+                .then()
+                .log()
+                .all();
     }
 
     private void authenticate() {
@@ -55,7 +64,13 @@ public class BaseTest {
         String[] names = {"login", "password"};
         String[][] vals = {{config.getUsername()}, {config.getPassword()}};
         var conf = new ParamsConfig(names, vals);
-        token = this.defaultRequestSpec(conf, loginPath).statusCode(200).assertThat().body("result", equalTo("OK")).body(matchesJsonSchemaInClasspath(LOGIN_VALID_SCHEMA_JSON)).extract().path("token");
+        token = this.defaultRequestSpec(conf, loginPath)
+                .statusCode(200)
+                .assertThat()
+                .body("result", equalTo("OK"))
+                .body(matchesJsonSchemaInClasspath(LOGIN_VALID_SCHEMA_JSON))
+                .extract()
+                .path("token");
     }
 
     private RequestSpecification setParams(ParamsConfig params, RequestSpecification spec) {
@@ -76,7 +91,10 @@ public class BaseTest {
             return baseThen(spec.when().post(path));
         }
 
-        return baseThen(spec.body(body).when().post(path));
+        return baseThen(spec
+                .body(body)
+                .when()
+                .post(path));
     }
 
     public ValidatableResponse defaultRequestSpec(ParamsConfig params, String path) {
@@ -89,10 +107,15 @@ public class BaseTest {
         var spec = this.setParams(params, baseAuthenticatedGiven());
 
         if (body.isEmpty()) {
-            return baseThen(spec.when().post(path));
+            return baseThen(spec
+                    .when()
+                    .post(path));
         }
 
-        return baseThen(spec.body(body).when().post(path));
+        return baseThen(spec
+                .body(body)
+                .when()
+                .post(path));
     }
 
     public ValidatableResponse authenticatedRequestSpec(ParamsConfig params, String path) {
@@ -105,7 +128,9 @@ public class BaseTest {
 
     protected ValidatableResponse uploadDocument(ParamsConfig params) {
         var res = this.authenticatedRequestSpec(params, uploadDocPath);
-        String docToken = res.extract().path("document.doctoken");
+        String docToken = res
+                .extract()
+                .path("document.doctoken");
         DocumentDeleter.addToken(docToken);
 
         return res;

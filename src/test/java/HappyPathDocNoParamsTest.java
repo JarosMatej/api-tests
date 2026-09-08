@@ -23,7 +23,12 @@ public class HappyPathDocNoParamsTest extends BaseTest {
         String[] names = {"docData", "docOwner", "documentName", "applicationMode"};
         String[][] vals = {{docData}, {config.getSignerLogin()}, {"Integration_test" + getTimeStamp()}, {"EDIT"}};
         var conf = new ParamsConfig(names, vals);
-        var spec = this.uploadDocument(conf).statusCode(200).assertThat().body("uploadResult", equalTo("OK")).body(matchesJsonSchemaInClasspath(UPLOAD_DOC_VALID_SCHEMA_JSON)).extract();
+        var spec = this.uploadDocument(conf)
+                .statusCode(200)
+                .assertThat()
+                .body("uploadResult", equalTo("OK"))
+                .body(matchesJsonSchemaInClasspath(UPLOAD_DOC_VALID_SCHEMA_JSON))
+                .extract();
         docId = spec.path("document.docid");
         docOwner = spec.path("document.docowner");
         docToken = spec.path("document.doctoken");
@@ -35,6 +40,10 @@ public class HappyPathDocNoParamsTest extends BaseTest {
         String[] names = {"docId", "docOwner", "doctoken", "showPanelRight", "showPanelTop", "showEmailsInSig", "showPRFinalize"};
         String[][] vals = {{String.valueOf(docId)}, {docOwner}, {docToken}, {"true"}, {"true"}, {"false"}, {"true"}};
         var conf = new ParamsConfig(names, vals);
-        this.authenticatedRequestSpec(conf, "/REST/createDocLink").statusCode(200).assertThat().body("createDocLinkResult", equalTo("OK")).body(matchesJsonSchemaInClasspath(CREATE_DOC_LINK_VALID_SCHEMA_JSON));
+        this.authenticatedRequestSpec(conf, createDocLinkPath)
+                .statusCode(200)
+                .assertThat()
+                .body("createDocLinkResult", equalTo("OK"))
+                .body(matchesJsonSchemaInClasspath(CREATE_DOC_LINK_VALID_SCHEMA_JSON));
     }
 }
