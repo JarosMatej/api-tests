@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {"type": "string"},
+    "error": {"type": "string"}
+  },
+  "required": ["description", "error"]
+}
