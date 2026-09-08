@@ -1,10 +1,8 @@
 import config.Base64Resources;
 import config.BaseTest;
 import config.ParamsConfig;
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
@@ -12,18 +10,9 @@ import static org.hamcrest.Matchers.equalTo;
 public class CreateContractTest extends BaseTest {
 
     private static int docId;
-    private static String docOwner;
-    private static String docToken;
-    private static int docId2;
-    private static String docOwner2;
-    private static String docToken2;
-    private static int docId3;
-    private static String docOwner3;
-    private static String docToken3;
     private static String contractToken;
     private static int sigid;
 
-    private static final String docData = Base64Resources.getDocData();
     private static final String contractDocuments = Base64Resources.getDocumentsCreateContract();
     private static final String sigBioData = Base64Resources.getSigBioData();
     private static final String sigImgBase64 = Base64Resources.getSigImgBase64();
@@ -57,6 +46,7 @@ public class CreateContractTest extends BaseTest {
                 .extract();
 
         sigid = spec.path("docObject.signatures[0].sigid");
+        docId = spec.path("docObject.contractDocuments[0].id");
     }
 
     @Test

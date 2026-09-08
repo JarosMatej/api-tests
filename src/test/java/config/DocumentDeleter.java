@@ -34,17 +34,17 @@ public class DocumentDeleter {
     private static String authenticate() {
         Config config = Config.getInstance();
         return given()
-            .baseUri(config.getServer())
-            .param("login", config.getUsername())
-            .param("password", config.getPassword())
-            .log().all()
-            .when()
-            .post("/restLogin")
-            .then()
-            .log().all()
-            .statusCode(200)
-            .extract()
-            .path("token");
+                .baseUri(config.getServer())
+                .param("login", config.getUsername())
+                .param("password", config.getPassword())
+                .log().all()
+                .when()
+                .post("/restLogin")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .extract()
+                .path("token");
     }
 
     public static void main(String[] args) {
@@ -60,30 +60,30 @@ public class DocumentDeleter {
             if (tokens.isEmpty()) {
                 return;
             }
-            
+
             StringBuilder tokensArg = new StringBuilder("[");
             tokensArg.append("\"").append(tokens.getFirst()).append("\"");
             for (int i = 1; i < tokens.size(); ++i) {
                 tokensArg.append(", \"").append(tokens.get(i)).append("\"");
             }
             tokensArg.append("]");
-            
+
             Config config = Config.getInstance();
             String token = authenticate();
-            
+
             given()
-                .baseUri(config.getServer())
-                .header("Authorization", "Bearer " + token)
-                .param("docTokens", tokensArg.toString())
-                .log().all()
-                .when()
-                .post("/REST/deleteDocument")
-                .then()
-                .log().all()
-                .statusCode(200)
-                .assertThat()
-                .body("deleteResult", equalTo("DELETED"));
-                
+                    .baseUri(config.getServer())
+                    .header("Authorization", "Bearer " + token)
+                    .param("docTokens", tokensArg.toString())
+                    .log().all()
+                    .when()
+                    .post("/REST/deleteDocument")
+                    .then()
+                    .log().all()
+                    .statusCode(200)
+                    .assertThat()
+                    .body("deleteResult", equalTo("DELETED"));
+
             Files.deleteIfExists(file);
             Files.deleteIfExists(PATH_FILE);
         } catch (IOException e) {

@@ -17,6 +17,7 @@ public class NegativePathMissingParamsTest extends BaseTest {
     private static final String docToken = "";
 
     private static final String docData = Base64Resources.getDocDataNegativePathMissingParams();
+
     @Test
     @Order(1)
     void loginWith400() {

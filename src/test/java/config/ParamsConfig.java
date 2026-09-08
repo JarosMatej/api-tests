@@ -13,7 +13,7 @@ public class ParamsConfig {
     }
 
     private List<List<String>> createVals(String[][] vals) {
-        List<List<String>> res = new ArrayList<List<String>>();
+        List<List<String>> res = new ArrayList<>();
 
         for (String[] val : vals) {
             res.add(Arrays.asList(val));
