@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "docData": {"type": "string"},
+    "flattened": {"type": "boolean"},
+    "downloadDocResult": {"type": "string"},
+    "docName": {"type": "string"},
+    "locked": {"type": "boolean"}
+  },
+  "required": ["docData", "flattened", "downloadDocResult", "locked", "docName"]
+}
