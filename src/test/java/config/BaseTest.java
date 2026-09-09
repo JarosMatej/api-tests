@@ -46,6 +46,8 @@ public class BaseTest {
 
     protected static String getContractByTokenPath = "/REST/getContractByToken";
 
+    protected static String deleteDocumentPath = "/REST/deleteDocument";
+
     private static RequestSpecification baseGiven() {
         return given().
                 baseUri(baseUri)
@@ -140,7 +142,22 @@ public class BaseTest {
         String docToken = res
                 .extract()
                 .path("document.doctoken");
-        DocumentDeleter.addToken(docToken);
+        if (docToken != null) {
+            DocumentDeleter.addToken(docToken);
+        }
+
+        return res;
+    }
+
+    protected ValidatableResponse createContract(ParamsConfig params) {
+        var res = this.authenticatedRequestSpec(params, createContractPath);
+        String conToken = res
+                .extract()
+                .path("token");
+
+        if (conToken != null) {
+            DocumentDeleter.addToken(conToken);
+        }
 
         return res;
     }

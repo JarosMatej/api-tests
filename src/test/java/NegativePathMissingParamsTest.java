@@ -38,7 +38,7 @@ public class NegativePathMissingParamsTest extends BaseTest {
         String[] names = {"docOwner", "applicationMode", "parameters", "docData"};
         String[][] vals = {{config.getSignerLogin()}, {"EDIT"}, {parametersStr}, {docData}};
         var conf = new ParamsConfig(names, vals);
-        this.authenticatedRequestSpec(conf, uploadDocPath)
+        this.uploadDocument(conf)
                 .statusCode(400)
                 .assertThat()
                 .body("error", equalTo("MISSING_PARAM"))

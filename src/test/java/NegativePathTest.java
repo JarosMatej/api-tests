@@ -34,7 +34,7 @@ public class NegativePathTest extends BaseTest {
         String[] names = {"docOwner", "documentName", "applicationMode", "parameters"};
         String[][] vals = {{config.getDocOwner()}, {"Integration_test" + getTimeStamp()}, {"EDIT"}, {"type=signature|subtype=biometric|name=sig2|page=1|positionX=20|positionY=20|width=20|height=7|required=true|signerLogin=" + config.getSignerLogin() + "|signerfirstname=" + config.getName() + "|signersecondname=" + config.getName() + "|inperson=true|required=true;type=signature|subtype=biometric|name=sig3|page=1|positionX=40|positionY=40|width=20|height=7|required=true|signerLogin=" + config.getSignerLogin() + "|signerfirstname=" + config.getName() + "|signersecondname=" + config.getName() + "|inperson=true|required=true"}};
         var conf = new ParamsConfig(names, vals);
-        this.authenticatedRequestSpec(conf, uploadDocPath)
+        this.uploadDocument(conf)
                 .statusCode(200)
                 .assertThat()
                 .body("uploadResult", equalTo("DOCDATA EMTPY"))

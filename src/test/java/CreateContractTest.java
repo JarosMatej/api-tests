@@ -26,7 +26,7 @@ public class CreateContractTest extends BaseTest {
         String[] names = {"owner", "contractName", "applicationMode", "documents"};
         String[][] vals = {{config.getDocOwner()}, {"Integration_test" + getTimeStamp()}, {"SIGN"}, {contractDocuments}};
         var conf = new ParamsConfig(names, vals);
-        var spec = this.authenticatedRequestSpec(conf, createContractPath)
+        var spec = this.createContract(conf)
                 .statusCode(200)
                 .assertThat()
                 .body("result", equalTo("OK"))
