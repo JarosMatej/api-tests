@@ -64,7 +64,7 @@ public class BaseTest {
         return spec
                 .then()
                 .log()
-                .all();
+                .ifValidationFails();
     }
 
     private void authenticate() {
