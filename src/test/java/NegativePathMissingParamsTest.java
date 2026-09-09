@@ -49,7 +49,7 @@ public class NegativePathMissingParamsTest extends BaseTest {
     @Order(3)
     void createDocLink() {
         String[] names = {"docId", "docOwner", "doctoken", "showPanelRight", "showPanelTop", "showEmailsInSig", "callback", "finalizeType", "finalizeUrl", "finalizeAutoExecute", "finalizeEnablePlugin", "showPRFinalize", "showPREmail", "showPRDownload", "finalizeWebhookUrl"};
-        String[][] vals = {{String.valueOf(docId)}, {docOwner}, {docToken}, {"true"}, {"true"}, {"false"}, {""}, {"redirect"}, {"http://signosoft.ais-service.cz:8080/SigndocIntegrationService/resultinfo.jsp"}, {"confirm"}, {"true"}, {"true"}, {"false"}, {"false"}, {"-"}};
+        String[][] vals = {{String.valueOf(docId)}, {docOwner}, {docToken}, {"true"}, {"true"}, {"false"}, {""}, {"redirect"}, {""}, {"confirm"}, {"true"}, {"true"}, {"false"}, {"false"}, {"-"}};
         var conf = new ParamsConfig(names, vals);
         this.authenticatedRequestSpec(conf, createDocLinkPath)
                 .statusCode(200)
