@@ -3,4 +3,5 @@ phases:
   install:
     java: corretto21
   test:
-    mvn test
+    commands:
+      - mvn test
