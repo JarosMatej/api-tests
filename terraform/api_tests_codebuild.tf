@@ -8,6 +8,10 @@ variable "codebuild_name" {
   default = "rest-assured-api-tests"
 }
 
+data "aws_s3_bucket"  "cache-bucket" {
+  bucket  = "artifactory-sis"
+}
+
 resource "aws_codebuild_project" "rest-assured-api-tests" {
   name           =  var.codebuild_name
   service_role   = data.aws_iam_role.codebuild_role.arn
@@ -66,5 +70,10 @@ resource "aws_codebuild_project" "rest-assured-api-tests" {
       value = "/testing/api/name"
       type  = "PARAMETER_STORE"
     }
+  }
+
+  cache {
+    type = "S3"
+    location = "${data.aws_s3_bucket.cache-bucket.bucket}/api-test-deps-cache"
   }
 }
