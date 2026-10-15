@@ -5,3 +5,8 @@ phases:
   build:
     commands:
       - mvn test
+
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
