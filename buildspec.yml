@@ -4,16 +4,7 @@ phases:
     java: corretto21
   build:
     commands:
-      - ls -a
-      - ls -a /
-      - ls -a /root
-      - pwd
       - mvn test
-      - ls -a
-      - ls -a /
-      - ls -a /root
-      - ls -a /root/.m2
-      - pwd
 
 cache:
   paths:
