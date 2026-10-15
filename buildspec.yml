@@ -4,9 +4,10 @@ phases:
     java: corretto21
   build:
     commands:
-      - ls
-      - ls /
-      - ls /root
+      - ls -a
+      - ls -a /
+      - ls -a /root
+      - ls -a /root/.m2
       - pwd
       - mvn test
 
